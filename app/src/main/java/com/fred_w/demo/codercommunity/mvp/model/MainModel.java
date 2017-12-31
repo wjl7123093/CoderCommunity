@@ -10,16 +10,16 @@ import com.jess.arms.di.scope.ActivityScope;
 
 import javax.inject.Inject;
 
-import com.fred_w.demo.codercommunity.mvp.contract.LoginContract;
+import com.fred_w.demo.codercommunity.mvp.contract.MainContract;
 
 
 @ActivityScope
-public class LoginModel extends BaseModel implements LoginContract.Model {
+public class MainModel extends BaseModel implements MainContract.Model {
     private Gson mGson;
     private Application mApplication;
 
     @Inject
-    public LoginModel(IRepositoryManager repositoryManager, Gson gson, Application application) {
+    public MainModel(IRepositoryManager repositoryManager, Gson gson, Application application) {
         super(repositoryManager);
         this.mGson = gson;
         this.mApplication = application;

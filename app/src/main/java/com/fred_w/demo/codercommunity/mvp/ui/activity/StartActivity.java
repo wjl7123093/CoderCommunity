@@ -44,10 +44,11 @@ public class StartActivity extends BaseActivity {
     @Override
     public void initData(Bundle savedInstanceState) {
         new Handler().postDelayed(() -> {
+            // 无 access_token 则跳转到 WebviewActivity
             if (TextUtils.isEmpty(DataHelper.getStringSF(StartActivity.this, SharepreferenceKey.KEY_ACCESS_TOKEN))) {
                 ARouter.getInstance().build(ARoutePath.PATH_WEBVIEW).navigation();
                 StartActivity.this.finish();
-            } else {
+            } else {    // 有则跳转到 MainActivity
                 Bundle bundle = new Bundle();
                 bundle.putString(SharepreferenceKey.KEY_ACCESS_TOKEN,
                         DataHelper.getStringSF(StartActivity.this, SharepreferenceKey.KEY_ACCESS_TOKEN));

@@ -1,9 +1,14 @@
 package com.fred_w.demo.codercommunity.app;
 
 /**
- * Created by ColorApple on 2017/12/31.
+ * ARoute 路径
+ *
+ * @author Fred_W
+ * @version v1.0.0
+ *
+ * @crdate 2017-12-31
+ * @update
  */
-
 public interface ARoutePath {
 
     // Start

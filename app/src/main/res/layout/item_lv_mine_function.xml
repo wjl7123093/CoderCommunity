@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  * @Title: item_lv_mine_function.xml
+  * @Description: 个人中心功能列表项视图 XML
+  * @author Fred_W
+  * @crdate 2018-1-1
+  * @update
+  * @version v1.0.0(1)
+ -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="60dp"
+    android:orientation="horizontal"
+    android:gravity="center_vertical"
+    android:paddingLeft="@dimen/len_16"
+    android:paddingRight="@dimen/len_16">
+
+    <ImageView
+        android:id="@+id/iv_func_icon"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"/>
+
+    <TextView
+        android:id="@+id/tv_func_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="1"
+        android:textSize="@dimen/font_16"
+        android:textColor="@color/secondary_text"
+        android:layout_marginLeft="@dimen/len_16"/>
+
+    <ImageView
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_active"/>
+
+</LinearLayout>

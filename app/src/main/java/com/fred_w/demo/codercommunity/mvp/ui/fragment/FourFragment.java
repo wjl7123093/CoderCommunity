@@ -3,10 +3,21 @@ package com.fred_w.demo.codercommunity.mvp.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.BaseAdapter;
+import android.widget.ListView;
+import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.fred_w.demo.codercommunity.app.utils.FunctionManager;
+import com.fred_w.demo.codercommunity.mvp.model.entity.LvMineFunctionBean;
+import com.fred_w.demo.codercommunity.mvp.ui.adapter.CommonAdapter;
+import com.fred_w.demo.codercommunity.mvp.ui.adapter.ViewHolder;
 import com.jess.arms.base.BaseFragment;
 import com.jess.arms.di.component.AppComponent;
 import com.jess.arms.utils.ArmsUtils;
@@ -18,10 +29,42 @@ import com.fred_w.demo.codercommunity.mvp.presenter.FourPresenter;
 
 import com.fred_w.demo.codercommunity.R;
 
+import org.raphets.roundimageview.RoundImageView;
+
+import java.lang.reflect.Field;
+
+import butterknife.BindView;
+
 import static com.jess.arms.utils.Preconditions.checkNotNull;
 
-
+/**
+ * 个人中心 Fragment
+ *
+ * @author Fred_W
+ * @version v1.0.0
+ *
+ * @crdate 2018-1-1
+ * @update
+ */
 public class FourFragment extends BaseFragment<FourPresenter> implements FourContract.View {
+
+    @BindView(R.id.toolbar)
+    Toolbar mToolbar;
+    @BindView(R.id.toolbar_title)
+    TextView mTvToolbarTitle;
+    @BindView(R.id.toolbar_back)
+    RelativeLayout mBtnToolbarBack;
+
+    @BindView(R.id.iv_header)
+    RoundImageView mIvHeader;
+    @BindView(R.id.tv_name)
+    TextView mTvName;
+
+    @BindView(R.id.lv_mine)
+    ListView mLvMine;
+
+    private FunctionManager mFuncManager;
+    private CommonAdapter<LvMineFunctionBean> mAdapter;
 
 
     public static FourFragment newInstance() {
@@ -46,7 +89,11 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
 
     @Override
     public void initData(Bundle savedInstanceState) {
+        mBtnToolbarBack.setVisibility(View.GONE);
+        mTvToolbarTitle.setText("个人中心");
 
+        initFunctionManager();
+        bindGvFuncData();
     }
 
     /**
@@ -92,6 +139,60 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
     @Override
     public void killMyself() {
 
+    }
+
+    /** 初始化 FunctionManager */
+    private void initFunctionManager() {
+        mFuncManager = FunctionManager.getInstance(getContext());
+        mFuncManager.init();
+    }
+
+    /** 数据绑定 GridView */
+    private void bindGvFuncData() {
+        // 设置适配器
+        mLvMine.setAdapter(mAdapter = new CommonAdapter<LvMineFunctionBean>(
+                getContext(), mFuncManager.getBeans(), R.layout.item_lv_mine_function) {
+
+            @Override
+            public void convert(ViewHolder helper, LvMineFunctionBean item) {
+                helper.setText(R.id.tv_func_name, item.getDisplayName());
+                helper.setImageResource(R.id.iv_func_icon, getResourceIdMipmap(item.getIcon()));
+            }
+
+        });
+        mLvMine.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                try {
+                    mFuncManager.lanchFunction(position);
+                } catch (ClassNotFoundException e) {
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
+    /**
+     * 根据 icon 名称获取图片资源 ID
+     * @param imgName 图片名称
+     * @return 资源 ID
+     */
+    private int getResourceIdMipmap(String imgName)
+    {
+        Field field;
+        int resId = R.mipmap.ic_launcher;
+        try {
+            field = R.mipmap.class.getField(imgName);
+            resId = (int) field.get(null);
+        } catch (NoSuchFieldException e) {
+            e.printStackTrace();
+        } catch (IllegalAccessException e) {
+            e.printStackTrace();
+        } catch (IllegalArgumentException e) {
+            e.printStackTrace();
+        }
+
+        return resId;
     }
 
 }

@@ -12,6 +12,7 @@ import com.alibaba.android.arouter.facade.annotation.Param;
 import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.fred_w.demo.codercommunity.app.ARoutePath;
+import com.fred_w.demo.codercommunity.app.SharepreferenceKey;
 import com.fred_w.demo.codercommunity.app.base.CCApplication;
 import com.fred_w.demo.codercommunity.mvp.model.api.Api;
 import com.jess.arms.base.BaseActivity;
@@ -24,6 +25,7 @@ import com.fred_w.demo.codercommunity.mvp.contract.MainContract;
 import com.fred_w.demo.codercommunity.mvp.presenter.MainPresenter;
 
 import com.fred_w.demo.codercommunity.R;
+import com.jess.arms.utils.DataHelper;
 
 
 import static android.R.attr.path;
@@ -40,8 +42,6 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  */
 @Route(path = ARoutePath.PATH_MAIN)
 public class MainActivity extends BaseActivity<MainPresenter> implements MainContract.View {
-
-    private CCApplication mApplication;
 
     @Autowired
     String access_token;
@@ -65,10 +65,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        if (null == mApplication)
-            mApplication = (CCApplication) getApplication();
-        if (TextUtils.isEmpty(mApplication.getToken_access()))
-            mApplication.setToken_access(access_token);
+        if (TextUtils.isEmpty(DataHelper.getStringSF(MainActivity.this, SharepreferenceKey.KEY_ACCESS_TOKEN)))
+            DataHelper.setStringSF(MainActivity.this, SharepreferenceKey.KEY_ACCESS_TOKEN, access_token);
     }
 
 

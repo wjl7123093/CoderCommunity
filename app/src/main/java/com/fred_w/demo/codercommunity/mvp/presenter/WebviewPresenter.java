@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.os.Bundle;
 
 import com.fred_w.demo.codercommunity.app.ARoutePath;
+import com.fred_w.demo.codercommunity.app.SharepreferenceKey;
 import com.fred_w.demo.codercommunity.app.base.CCApplication;
 import com.fred_w.demo.codercommunity.mvp.model.api.Api;
 import com.fred_w.demo.codercommunity.mvp.model.entity.AccessToken;
@@ -91,7 +92,7 @@ public class WebviewPresenter extends BasePresenter<WebviewContract.Model, Webvi
                         super.onComplete();
 //                        mRootView.launchActivity(new Intent(mApplication.getApplicationContext(), MainActivity.class));
                         Bundle bundle = new Bundle();
-                        bundle.putString("access_token", accessToken);
+                        bundle.putString(SharepreferenceKey.KEY_ACCESS_TOKEN, accessToken);
                         mRootView.lanuchActivityByARoute(ARoutePath.PATH_MAIN, bundle);
                     }
 

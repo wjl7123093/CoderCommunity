@@ -13,9 +13,11 @@ import com.alibaba.android.arouter.facade.annotation.Route;
 import com.alibaba.android.arouter.launcher.ARouter;
 import com.fred_w.demo.codercommunity.R;
 import com.fred_w.demo.codercommunity.app.ARoutePath;
+import com.fred_w.demo.codercommunity.app.SharepreferenceKey;
 import com.fred_w.demo.codercommunity.app.base.CCApplication;
 import com.jess.arms.base.BaseActivity;
 import com.jess.arms.di.component.AppComponent;
+import com.jess.arms.utils.DataHelper;
 
 /**
  * 欢迎界面
@@ -29,8 +31,6 @@ import com.jess.arms.di.component.AppComponent;
 @Route(path = ARoutePath.PATH_START)
 public class StartActivity extends BaseActivity {
 
-    private CCApplication mApplication;
-
     @Override
     public void setupActivityComponent(AppComponent appComponent) {
 
@@ -43,19 +43,17 @@ public class StartActivity extends BaseActivity {
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        if (null == mApplication)
-            mApplication = (CCApplication) getApplication();
-
         new Handler().postDelayed(() -> {
-            if (TextUtils.isEmpty(mApplication.getToken_access())) {
+            if (TextUtils.isEmpty(DataHelper.getStringSF(StartActivity.this, SharepreferenceKey.KEY_ACCESS_TOKEN))) {
                 ARouter.getInstance().build(ARoutePath.PATH_WEBVIEW).navigation();
                 StartActivity.this.finish();
             } else {
                 Bundle bundle = new Bundle();
-                bundle.putString("access_token", mApplication.getToken_access());
+                bundle.putString(SharepreferenceKey.KEY_ACCESS_TOKEN,
+                        DataHelper.getStringSF(StartActivity.this, SharepreferenceKey.KEY_ACCESS_TOKEN));
                 ARouter.getInstance().build(ARoutePath.PATH_MAIN).with(bundle).navigation();
                 StartActivity.this.finish();
             }
-        }, 2000);
+        }, 1000);
     }
 }

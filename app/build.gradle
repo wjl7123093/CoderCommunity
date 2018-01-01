@@ -235,4 +235,6 @@ dependencies {
     compile 'com.ashokvarma.android:bottom-navigation-bar:1.3.1'
     // webview
     compile 'com.tencent.sonic:sdk:2.0.0'
+    // RoundImageView
+    compile 'org.raphets:roundimageview:1.2.0'  // 要求 minSdk 19
 }

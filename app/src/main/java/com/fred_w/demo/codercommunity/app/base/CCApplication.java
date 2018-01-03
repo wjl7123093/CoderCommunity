@@ -9,6 +9,8 @@ import com.jess.arms.base.BaseApplication;
 import com.tencent.sonic.sdk.SonicConfig;
 import com.tencent.sonic.sdk.SonicEngine;
 
+import org.xutils.x;
+
 /**
  * 全局 Application
  *
@@ -16,7 +18,7 @@ import com.tencent.sonic.sdk.SonicEngine;
  * @version v1.0.0
  *
  * @crdate 2017-12-31
- * @update 2018-1-1    删除了 SP
+ * @update 2018-1-3    新增了 xutils3 的初始化
  */
 public class CCApplication extends BaseApplication {
 
@@ -32,6 +34,10 @@ public class CCApplication extends BaseApplication {
         // 全局异常捕捉
         CrashHandler catchHandler = CrashHandler.getInstance();
         catchHandler.init(getApplicationContext());
+
+        // 初始化 xutils3
+        x.Ext.init(this);
+        x.Ext.setDebug(false); //输出debug日志，开启会影响性能
 
     }
 

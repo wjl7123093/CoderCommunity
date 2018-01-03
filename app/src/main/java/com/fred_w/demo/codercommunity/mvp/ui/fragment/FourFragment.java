@@ -3,18 +3,17 @@ package com.fred_w.demo.codercommunity.mvp.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
-import android.widget.BaseAdapter;
 import android.widget.ListView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.fred_w.demo.codercommunity.app.SharepreferenceKey;
 import com.fred_w.demo.codercommunity.app.utils.FunctionManager;
+import com.fred_w.demo.codercommunity.app.utils.ImageLoader;
+import com.fred_w.demo.codercommunity.mvp.model.entity.LoginUser;
 import com.fred_w.demo.codercommunity.mvp.model.entity.LvMineFunctionBean;
 import com.fred_w.demo.codercommunity.mvp.ui.adapter.CommonAdapter;
 import com.fred_w.demo.codercommunity.mvp.ui.adapter.ViewHolder;
@@ -28,6 +27,7 @@ import com.fred_w.demo.codercommunity.mvp.contract.FourContract;
 import com.fred_w.demo.codercommunity.mvp.presenter.FourPresenter;
 
 import com.fred_w.demo.codercommunity.R;
+import com.jess.arms.utils.DataHelper;
 
 import org.raphets.roundimageview.RoundImageView;
 
@@ -44,16 +44,16 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  * @version v1.0.0
  *
  * @crdate 2018-1-1
- * @update
+ * @update 2018-1-3
  */
 public class FourFragment extends BaseFragment<FourPresenter> implements FourContract.View {
 
-    @BindView(R.id.toolbar)
+    /*@BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.toolbar_title)
     TextView mTvToolbarTitle;
     @BindView(R.id.toolbar_back)
-    RelativeLayout mBtnToolbarBack;
+    RelativeLayout mBtnToolbarBack;*/
 
     @BindView(R.id.iv_header)
     RoundImageView mIvHeader;
@@ -89,11 +89,15 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        mBtnToolbarBack.setVisibility(View.GONE);
-        mTvToolbarTitle.setText("个人中心");
+        /*mBtnToolbarBack.setVisibility(View.GONE);
+        mTvToolbarTitle.setText("个人中心");*/
 
         initFunctionManager();
         bindGvFuncData();
+
+        // 获取当前登录用户信息
+        mPresenter.callMethodOfGetLoginUser(DataHelper.getStringSF(getContext(),
+                SharepreferenceKey.KEY_ACCESS_TOKEN), getActivity());
     }
 
     /**
@@ -195,4 +199,18 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
         return resId;
     }
 
+    @Override
+    public void saveLoginUser(LoginUser loginUser) {
+        DataHelper.saveDeviceData(getContext(), SharepreferenceKey.KEY_LOGIN_USER, loginUser);
+    }
+
+    @Override
+    public void showHeaderImage(String imgUrl) {
+        ImageLoader.getInstance().showImage(mIvHeader, imgUrl);
+    }
+
+    @Override
+    public void showName(String name) {
+        mTvName.setText(name);
+    }
 }

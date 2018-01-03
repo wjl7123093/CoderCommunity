@@ -30,7 +30,7 @@
         name="my_blog"
         displayName="我的博客"
         icon="ic_mine"
-        packageName="com.mypolice.poo.ui.activity"
+        packageName="com.fred_w.demo.codercommunity.mvp.ui.activity"
         activityName="StartActivity" />
     
     <!-- 功能4 -->
@@ -38,7 +38,7 @@
         name="my_question"
         displayName="我的问答"
         icon="ic_mine"
-        packageName="com.mypolice.poo.ui.activity"
+        packageName="com.fred_w.demo.codercommunity.mvp.ui.activity"
         activityName="StartActivity" />
     
     <!-- 功能5 -->

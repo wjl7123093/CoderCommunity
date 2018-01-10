@@ -1,5 +1,7 @@
 package com.fred_w.demo.codercommunity.mvp.model.entity;
 
+import java.io.Serializable;
+
 /**
  * 登录用户 Entity
  *
@@ -9,7 +11,7 @@ package com.fred_w.demo.codercommunity.mvp.model.entity;
  * @crdate 2017-1-2
  * @update
  */
-public class LoginUser {
+public class LoginUser implements Serializable {
 
     private String id;
     private String email;

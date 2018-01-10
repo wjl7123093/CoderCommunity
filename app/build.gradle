@@ -215,7 +215,7 @@ dependencies {
     releaseCompile rootProject.ext.dependencies["canary-release"]
     testCompile rootProject.ext.dependencies["canary-release"]
 
-    compile rootProject.ext.dependencies["androideventbus"]//eventbus
+    compile rootProject.ext.dependencies["eventbus"]//eventbus
     compile rootProject.ext.dependencies["arouter"]// alibaba arouter 路由框架
     annotationProcessor rootProject.ext.dependencies["arouter-compiler"]
 

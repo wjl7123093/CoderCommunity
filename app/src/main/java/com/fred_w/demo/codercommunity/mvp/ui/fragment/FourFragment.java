@@ -95,9 +95,13 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
         initFunctionManager();
         bindGvFuncData();
 
-        // 获取当前登录用户信息
-        mPresenter.callMethodOfGetLoginUser(DataHelper.getStringSF(getContext(),
-                SharepreferenceKey.KEY_ACCESS_TOKEN), getActivity());
+        if (null == DataHelper.getDeviceData(getContext(), SharepreferenceKey.KEY_LOGIN_USER))
+            // 获取当前登录用户信息
+            mPresenter.callMethodOfGetLoginUser(DataHelper.getStringSF(getContext(),
+                    SharepreferenceKey.KEY_ACCESS_TOKEN), getActivity());
+        else
+            mPresenter.showDataToUI(DataHelper.getDeviceData(getContext(), SharepreferenceKey.KEY_LOGIN_USER));
+
     }
 
     /**

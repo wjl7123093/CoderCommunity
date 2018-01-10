@@ -55,6 +55,8 @@ public class FourPresenter extends BasePresenter<FourContract.Model, FourContrac
 
     /**
      * 执行 获取当前登录用户的账户信息 方法
+     * @param access_token
+     * @param activity 为了实例化 RxPermission 传递的 activity对象
      */
     public void callMethodOfGetLoginUser(String access_token, Activity activity) {
         mModel.getLoginUser(access_token, "json")
@@ -98,4 +100,12 @@ public class FourPresenter extends BasePresenter<FourContract.Model, FourContrac
 
     }
 
+    /**
+     * 展示SP数据到 UI
+     * @param loginUser 当前登录用户信息
+     */
+    public void showDataToUI(LoginUser loginUser) {
+        mRootView.showHeaderImage(loginUser.getAvatar());
+        mRootView.showName(loginUser.getName());
+    }
 }

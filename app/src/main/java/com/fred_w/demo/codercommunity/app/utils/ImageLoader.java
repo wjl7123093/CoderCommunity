@@ -38,7 +38,7 @@ public class ImageLoader {
      * 初始化 imageOptions
      * @return
      */
-    public ImageOptions initImageOptions() {
+    private ImageOptions initImageOptions() {
         //通过ImageOptions.Builder().set方法设置图片的属性
         ImageOptions imageOptions= new ImageOptions.Builder()
                 //ImageOptions.Builder()的一些其他属性：

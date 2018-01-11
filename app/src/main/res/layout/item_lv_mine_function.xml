@@ -9,7 +9,7 @@
  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="60dp"
+    android:layout_height="50dp"
     android:orientation="horizontal"
     android:gravity="center_vertical"
     android:paddingLeft="@dimen/len_16"
@@ -31,9 +31,9 @@
         android:layout_marginLeft="@dimen/len_16"/>
 
     <ImageView
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="20dp"
+        android:layout_height="20dp"
         android:scaleType="centerCrop"
-        android:src="@mipmap/ic_active"/>
+        android:src="@mipmap/ic_right_48"/>
 
 </LinearLayout>

@@ -3,18 +3,23 @@ package com.fred_w.demo.codercommunity.mvp.ui.fragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
+import android.support.v7.widget.Toolbar;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ListView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.fred_w.demo.codercommunity.app.ARoutePath;
 import com.fred_w.demo.codercommunity.app.SharepreferenceKey;
 import com.fred_w.demo.codercommunity.app.utils.FunctionManager;
 import com.fred_w.demo.codercommunity.app.utils.ImageLoader;
 import com.fred_w.demo.codercommunity.mvp.model.entity.LoginUser;
 import com.fred_w.demo.codercommunity.mvp.model.entity.LvMineFunctionBean;
+import com.fred_w.demo.codercommunity.mvp.ui.activity.MyInfoActivity;
 import com.fred_w.demo.codercommunity.mvp.ui.adapter.CommonAdapter;
 import com.fred_w.demo.codercommunity.mvp.ui.adapter.ViewHolder;
 import com.jess.arms.base.BaseFragment;
@@ -48,12 +53,12 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  */
 public class FourFragment extends BaseFragment<FourPresenter> implements FourContract.View {
 
-    /*@BindView(R.id.toolbar)
+    @BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.toolbar_title)
     TextView mTvToolbarTitle;
     @BindView(R.id.toolbar_back)
-    RelativeLayout mBtnToolbarBack;*/
+    RelativeLayout mBtnToolbarBack;
 
     @BindView(R.id.iv_header)
     RoundImageView mIvHeader;
@@ -101,6 +106,11 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
                     SharepreferenceKey.KEY_ACCESS_TOKEN), getActivity());
         else
             mPresenter.showDataToUI(DataHelper.getDeviceData(getContext(), SharepreferenceKey.KEY_LOGIN_USER));
+
+        mIvHeader.setOnClickListener(view -> {
+            ArmsUtils.startActivity(getActivity(), new Intent(getActivity(), MyInfoActivity.class));
+//            ARouter.getInstance().build(ARoutePath.PATH_MY_INFO).navigation();
+        });
 
     }
 

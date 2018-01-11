@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/grey_500">
+
+    <include layout="@layout/include_toolbar"></include>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:tools="http://schemas.android.com/tools"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <view
+                android:id="@+id/viewtest"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/len_16"
+                android:background="@color/grey_500"></view>
+
+            <!-- 頭像 -->
+            <include
+                android:id="@+id/include_header"
+                layout="@layout/item_myinfo"></include>
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"></view>
+
+            <!-- 姓名 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_name"></include>
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"></view>
+
+            <!-- 性別 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_gender"></include>
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"></view>
+
+            <!-- 省份 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_province"></include>
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"></view>
+
+            <!-- 城市 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_city"></include>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/len_16"
+                android:background="@color/grey_500"></view>
+
+            <!-- 开发平台 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_platforms"></include>
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"></view>
+
+            <!-- 专长领域 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_expertise"></include>
+
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/len_16"
+                android:background="@color/grey_500"></view>
+
+            <!-- 加入时间 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_joinTime"></include>
+            <view
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="@color/grey_500"></view>
+
+            <!-- 最后登录时间 -->
+            <include layout="@layout/item_myinfo"
+                android:id="@+id/include_lastLoginTime"></include>
+
+        </LinearLayout>
+    </ScrollView>
+
+
+</LinearLayout>

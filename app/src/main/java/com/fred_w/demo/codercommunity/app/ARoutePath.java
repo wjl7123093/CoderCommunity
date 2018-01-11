@@ -17,6 +17,8 @@ public interface ARoutePath {
     String PATH_WEBVIEW = "/cc/webview";
     // Main
     String PATH_MAIN = "/cc/main";
+    // MyInfo
+    String PATH_MY_INFO = "/cc/myinfo";
 
 
 }

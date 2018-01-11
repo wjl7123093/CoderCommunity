@@ -20,7 +20,7 @@
         android:text="Hello Four!"
         android:layout_centerInParent="true" />-->
 
-    <!--<include layout="@layout/include_toolbar"></include>-->
+    <include layout="@layout/include_toolbar"></include>
 
     <LinearLayout
         android:layout_width="match_parent"

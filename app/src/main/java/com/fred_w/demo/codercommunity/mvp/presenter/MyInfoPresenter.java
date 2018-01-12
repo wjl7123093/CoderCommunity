@@ -72,6 +72,16 @@ public class MyInfoPresenter extends BasePresenter<MyInfoContract.Model, MyInfoC
                 .compose(RxLifecycleUtils.bindToLifecycle(mRootView)) //使用Rxlifecycle,使Disposable和Activity一起销毁
                 .subscribe(new ErrorHandleSubscriber<MyInfo>(mErrorHandler) {
                     @Override
+                    public void onError(@NonNull Throwable e) {
+                        super.onError(e);
+                    }
+
+                    @Override
+                    public void onComplete() {
+                        super.onComplete();
+                    }
+
+                    @Override
                     public void onNext(@NonNull MyInfo myInfo) {
                         mRootView.showMyInfo(myInfo);
                     }

@@ -44,24 +44,24 @@ public class MyInfoActivity extends BaseActivity<MyInfoPresenter> implements MyI
     @BindView(R.id.toolbar_back)
     RelativeLayout mBtnToolbarBack;
 
-//    @BindView(R.id.include_header)
+    @BindView(R.id.include_header)
     RelativeLayout mRlHeader;               // 头像
-//    @BindView(R.id.include_name)
-//    RelativeLayout mRlName;                 // 姓名
-//    @BindView(R.id.include_gender)
-//    RelativeLayout mRlGender;               // 性别
-//    @BindView(R.id.include_province)
-//    RelativeLayout mRlProvince;             // 省份
-//    @BindView(R.id.include_city)
-//    RelativeLayout mRlCity;                 // 城市
-//    @BindView(R.id.include_platforms)
-//    RelativeLayout mRlPlatforms;            // 开发平台
-//    @BindView(R.id.include_expertise)
-//    RelativeLayout mRlExpertise;            // 专长领域
-//    @BindView(R.id.include_joinTime)
-//    RelativeLayout mRlJointime;             // 加入时间
-//    @BindView(R.id.include_lastLoginTime)
-//    RelativeLayout mRlLastLoginTime;        // 最后登录时间
+    @BindView(R.id.include_name)
+    RelativeLayout mRlName;                 // 姓名
+    @BindView(R.id.include_gender)
+    RelativeLayout mRlGender;               // 性别
+    @BindView(R.id.include_province)
+    RelativeLayout mRlProvince;             // 省份
+    @BindView(R.id.include_city)
+    RelativeLayout mRlCity;                 // 城市
+    @BindView(R.id.include_platforms)
+    RelativeLayout mRlPlatforms;            // 开发平台
+    @BindView(R.id.include_expertise)
+    RelativeLayout mRlExpertise;            // 专长领域
+    @BindView(R.id.include_joinTime)
+    RelativeLayout mRlJointime;             // 加入时间
+    @BindView(R.id.include_lastLoginTime)
+    RelativeLayout mRlLastLoginTime;        // 最后登录时间
 
 
     @Override
@@ -82,7 +82,7 @@ public class MyInfoActivity extends BaseActivity<MyInfoPresenter> implements MyI
     @Override
     public void initData(Bundle savedInstanceState) {
 
-        mRlHeader = (RelativeLayout) MyInfoActivity.this.findViewById(R.id.include_header);
+//        mRlHeader = (RelativeLayout) MyInfoActivity.this.findViewById(R.id.include_header);
 
         mPresenter.callMethodOfGetMyInformation(DataHelper.getStringSF(MyInfoActivity.this,
                 SharepreferenceKey.KEY_ACCESS_TOKEN));
@@ -120,14 +120,14 @@ public class MyInfoActivity extends BaseActivity<MyInfoPresenter> implements MyI
     @Override
     public void showMyInfo(MyInfo myInfo) {
         initLayout(mRlHeader, "头像", myInfo.getPortrait(), true);
-//        initLayout(mRlName, "名称", myInfo.getName(), false);
-//        initLayout(mRlGender, "性别", myInfo.getName(), false);
-//        initLayout(mRlProvince, "省份", myInfo.getName(), false);
-//        initLayout(mRlCity, "城市", myInfo.getName(), false);
-//        initLayout(mRlPlatforms, "开发平台", myInfo.getName(), false);
-//        initLayout(mRlExpertise, "专长领域", myInfo.getName(), false);
-//        initLayout(mRlJointime, "加入时间", myInfo.getName(), false);
-//        initLayout(mRlLastLoginTime, "最后登录时间", myInfo.getName(), false);
+        initLayout(mRlName, "名称", myInfo.getName(), false);
+        initLayout(mRlGender, "性别", myInfo.getName(), false);
+        initLayout(mRlProvince, "省份", myInfo.getName(), false);
+        initLayout(mRlCity, "城市", myInfo.getName(), false);
+        initLayout(mRlPlatforms, "开发平台", myInfo.getName(), false);
+        initLayout(mRlExpertise, "专长领域", myInfo.getName(), false);
+        initLayout(mRlJointime, "加入时间", myInfo.getName(), false);
+        initLayout(mRlLastLoginTime, "最后登录时间", myInfo.getName(), false);
     }
 
     /**

@@ -53,12 +53,12 @@ import static com.jess.arms.utils.Preconditions.checkNotNull;
  */
 public class FourFragment extends BaseFragment<FourPresenter> implements FourContract.View {
 
-    @BindView(R.id.toolbar)
+    /*@BindView(R.id.toolbar)
     Toolbar mToolbar;
     @BindView(R.id.toolbar_title)
     TextView mTvToolbarTitle;
     @BindView(R.id.toolbar_back)
-    RelativeLayout mBtnToolbarBack;
+    RelativeLayout mBtnToolbarBack;*/
 
     @BindView(R.id.iv_header)
     RoundImageView mIvHeader;

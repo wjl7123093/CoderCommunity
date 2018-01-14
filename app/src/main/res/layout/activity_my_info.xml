@@ -4,91 +4,90 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:background="@color/grey_500">
+    android:background="@color/grey_300">
 
     <include layout="@layout/include_toolbar"></include>
 
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-            xmlns:tools="http://schemas.android.com/tools"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <view
+            <View
                 android:id="@+id/viewtest"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/len_16"
-                android:background="@color/grey_500"></view>
+                android:background="@color/trans"></View>
 
             <!-- 頭像 -->
             <include
                 android:id="@+id/include_header"
                 layout="@layout/item_myinfo"></include>
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 姓名 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_name"></include>
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 性別 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_gender"></include>
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 省份 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_province"></include>
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 城市 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_city"></include>
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/len_16"
-                android:background="@color/grey_500"></view>
+                android:background="@color/trans"></View>
 
             <!-- 开发平台 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_platforms"></include>
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 专长领域 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_expertise"></include>
 
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/len_16"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 加入时间 -->
             <include layout="@layout/item_myinfo"
                 android:id="@+id/include_joinTime"></include>
-            <view
+            <View
                 android:layout_width="match_parent"
                 android:layout_height="1dp"
-                android:background="@color/grey_500"></view>
+                android:background="@color/grey_300"></View>
 
             <!-- 最后登录时间 -->
             <include layout="@layout/item_myinfo"

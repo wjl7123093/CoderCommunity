@@ -41,7 +41,8 @@
             android:name=".mvp.ui.activity.WebviewActivity"
             android:label="@string/title_activity_start"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".mvp.ui.activity.MyInfoActivity"></activity>
+        <activity android:name=".mvp.ui.activity.MyInfoActivity"
+            android:label="@string/title_activity_myinfo"></activity>
     </application>
 
 </manifest>

@@ -84,6 +84,7 @@ public class MyInfoPresenter extends BasePresenter<MyInfoContract.Model, MyInfoC
                     @Override
                     public void onNext(@NonNull MyInfo myInfo) {
                         mRootView.showMyInfo(myInfo);
+                        mRootView.saveMyInfo(myInfo);
                     }
                 });
     }

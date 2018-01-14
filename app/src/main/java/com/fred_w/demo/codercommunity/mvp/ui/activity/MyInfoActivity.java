@@ -81,11 +81,12 @@ public class MyInfoActivity extends BaseActivity<MyInfoPresenter> implements MyI
 
     @Override
     public void initData(Bundle savedInstanceState) {
-
-//        mRlHeader = (RelativeLayout) MyInfoActivity.this.findViewById(R.id.include_header);
-
-        mPresenter.callMethodOfGetMyInformation(DataHelper.getStringSF(MyInfoActivity.this,
-                SharepreferenceKey.KEY_ACCESS_TOKEN));
+        if (null == DataHelper.getDeviceData(MyInfoActivity.this, SharepreferenceKey.KEY_MY_INFO))
+            mPresenter.callMethodOfGetMyInformation(DataHelper.getStringSF(MyInfoActivity.this,
+                    SharepreferenceKey.KEY_ACCESS_TOKEN));
+        else
+            showMyInfo(DataHelper.getDeviceData(MyInfoActivity.this,
+                    SharepreferenceKey.KEY_MY_INFO));
     }
 
 
@@ -118,16 +119,21 @@ public class MyInfoActivity extends BaseActivity<MyInfoPresenter> implements MyI
 
 
     @Override
+    public void saveMyInfo(MyInfo myInfo) {
+        DataHelper.saveDeviceData(MyInfoActivity.this, SharepreferenceKey.KEY_MY_INFO, myInfo);
+    }
+
+    @Override
     public void showMyInfo(MyInfo myInfo) {
         initLayout(mRlHeader, "头像", myInfo.getPortrait(), true);
         initLayout(mRlName, "名称", myInfo.getName(), false);
-        initLayout(mRlGender, "性别", myInfo.getName(), false);
-        initLayout(mRlProvince, "省份", myInfo.getName(), false);
-        initLayout(mRlCity, "城市", myInfo.getName(), false);
-        initLayout(mRlPlatforms, "开发平台", myInfo.getName(), false);
-        initLayout(mRlExpertise, "专长领域", myInfo.getName(), false);
-        initLayout(mRlJointime, "加入时间", myInfo.getName(), false);
-        initLayout(mRlLastLoginTime, "最后登录时间", myInfo.getName(), false);
+        initLayout(mRlGender, "性别", myInfo.getGender() == 0 ? "女" : "男" , false);
+        initLayout(mRlProvince, "省份", myInfo.getProvince(), false);
+        initLayout(mRlCity, "城市", myInfo.getCity(), false);
+        initLayout(mRlPlatforms, "开发平台", myInfo.getPlatforms().toString(), false);
+        initLayout(mRlExpertise, "专长领域", myInfo.getExpertise().toString(), false);
+        initLayout(mRlJointime, "加入时间", myInfo.getJoinTime(), false);
+        initLayout(mRlLastLoginTime, "最后登录时间", myInfo.getLastLoginTime(), false);
     }
 
     /**

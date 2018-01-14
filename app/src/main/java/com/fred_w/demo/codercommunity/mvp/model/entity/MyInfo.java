@@ -10,7 +10,7 @@ import java.util.Arrays;
  * @version v1.0.0
  *
  * @crdate 2017-1-11
- * @update
+ * @update 2017-1-14
  */
 public class MyInfo implements Serializable {
 
@@ -161,7 +161,7 @@ public class MyInfo implements Serializable {
         this.notice = notice;
     }
 
-    class Notice {
+    class Notice implements Serializable {
         int replyCount;     // 未读评论数
         int msgCount;       // 未读私信数
         int fansCount;      // 新增粉丝数

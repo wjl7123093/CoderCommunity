@@ -10,15 +10,14 @@ import android.os.Parcelable;
  * @version v1.0.0
  *
  * @crdate 2018-1-1
- * @update
+ * @update 2018-1-16
  */
 public class LvMineFunctionBean implements Parcelable {
 
     private String name;
-    private String packageName;
-    private String activityName;
     private String displayName;
     private String icon;
+    private String path;    // ARoute Path
 
     public LvMineFunctionBean() {
 
@@ -26,10 +25,9 @@ public class LvMineFunctionBean implements Parcelable {
 
     protected LvMineFunctionBean(Parcel in) {
         name = in.readString();
-        packageName = in.readString();
-        activityName = in.readString();
         displayName = in.readString();
         icon = in.readString();
+        path = in.readString();
     }
 
     public static final Creator<LvMineFunctionBean> CREATOR = new Creator<LvMineFunctionBean>() {
@@ -52,22 +50,6 @@ public class LvMineFunctionBean implements Parcelable {
         this.name = name;
     }
 
-    public String getPackageName() {
-        return packageName;
-    }
-
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
-    }
-
-    public String getActivityName() {
-        return activityName;
-    }
-
-    public void setActivityName(String activityName) {
-        this.activityName = activityName;
-    }
-
     public String getDisplayName() {
         return displayName;
     }
@@ -84,6 +66,14 @@ public class LvMineFunctionBean implements Parcelable {
         this.icon = icon;
     }
 
+    public String getPath() {
+        return path;
+    }
+
+    public void setPath(String path) {
+        this.path = path;
+    }
+
     @Override
     public int describeContents() {
         return 0;
@@ -92,9 +82,8 @@ public class LvMineFunctionBean implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(name);
-        dest.writeString(packageName);
-        dest.writeString(activityName);
         dest.writeString(displayName);
         dest.writeString(icon);
+        dest.writeString(path);
     }
 }

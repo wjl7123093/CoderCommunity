@@ -9,8 +9,8 @@ import java.util.Arrays;
  * @author Fred_W
  * @version v1.0.0
  *
- * @crdate 2017-1-11
- * @update 2017-1-14
+ * @crdate 2018-1-11
+ * @update 2018-1-14
  */
 public class MyInfo implements Serializable {
 
@@ -159,13 +159,6 @@ public class MyInfo implements Serializable {
 
     public void setNotice(Notice notice) {
         this.notice = notice;
-    }
-
-    class Notice implements Serializable {
-        int replyCount;     // 未读评论数
-        int msgCount;       // 未读私信数
-        int fansCount;      // 新增粉丝数
-        int referCount;     // 未读@我数
     }
 
 }

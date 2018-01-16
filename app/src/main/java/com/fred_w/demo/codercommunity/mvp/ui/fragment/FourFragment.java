@@ -94,6 +94,7 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
 
     @Override
     public void initData(Bundle savedInstanceState) {
+
         initFunctionManager();
         bindGvFuncData();
 

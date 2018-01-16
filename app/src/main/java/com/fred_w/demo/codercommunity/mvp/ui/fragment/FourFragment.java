@@ -108,8 +108,8 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
             mPresenter.showDataToUI(DataHelper.getDeviceData(getContext(), SharepreferenceKey.KEY_LOGIN_USER));
 
         mIvHeader.setOnClickListener(view -> {
-            ArmsUtils.startActivity(getActivity(), new Intent(getActivity(), MyInfoActivity.class));
-//            ARouter.getInstance().build(ARoutePath.PATH_MY_INFO).navigation();
+//            ArmsUtils.startActivity(getActivity(), new Intent(getActivity(), MyInfoActivity.class));
+            ARouter.getInstance().build(ARoutePath.PATH_MY_INFO).navigation();
         });
 
     }

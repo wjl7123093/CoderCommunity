@@ -19,6 +19,8 @@ public interface ARoutePath {
     String PATH_MAIN = "/cc/main";
     // MyInfo
     String PATH_MY_INFO = "/cc/myinfo";
+    // ActiveList
+    String PATH_ACTIVE_LIST = "/cc/activelist";
 
 
 }

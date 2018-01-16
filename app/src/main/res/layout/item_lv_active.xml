@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  * @Title: item_myinfo.xml
+  * @Description: 动态信息项视图 XML
+  * @author Fred_W
+  * @crdate 2018-1-11
+  * @update
+  * @version v1.0.0(1)
+ -->
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:minHeight="50dp"
+	android:orientation="vertical"
+	android:padding="@dimen/len_16"
+	android:background="@color/white">
+
+	<!-- 头像区 -->
+	<RelativeLayout
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content">
+		<org.raphets.roundimageview.RoundImageView
+			android:id="@+id/iv_header"
+			android:layout_width="@dimen/len_44"
+			android:layout_height="@dimen/len_44"
+			android:src="@mipmap/ic_logo"
+			app:border_width="1dp"
+			app:border_color="@color/divider"
+			app:leftBottom_corner_radius="0dp"
+			app:leftTop_corner_radius="30dp"
+			app:rightBottom_corner_radius="30dp"
+			app:rightTop_corner_radius="0dp"
+			app:type="circle" />
+		<TextView
+			android:id="@+id/tv_username"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="暗笑次啊"
+			android:textSize="@dimen/font_18"
+			android:textColor="@color/primary_text"
+			android:layout_toRightOf="@id/iv_header"
+			android:layout_alignTop="@id/iv_header"
+			android:layout_marginLeft="@dimen/len_4"/>
+		<TextView
+			android:id="@+id/tv_pubdate_appclient"
+			android:layout_width="wrap_content"
+			android:layout_height="wrap_content"
+			android:text="刚刚 来自 Android"
+			android:textSize="@dimen/font_14"
+			android:textColor="@color/secondary_text"
+			android:layout_toRightOf="@id/iv_header"
+			android:layout_alignBottom="@id/iv_header"
+			android:layout_marginLeft="@dimen/len_4"/>
+	</RelativeLayout>
+
+	<!-- 文本内容 -->
+	<TextView
+		android:id="@+id/tv_message"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:text="动态内容。。。。。"
+		android:textSize="@dimen/font_18"
+		android:textColor="@color/primary_text"
+		android:layout_marginTop="@dimen/len_10"/>
+	
+	<ImageView
+		android:id="@+id/iv_content"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"
+		android:minWidth="@dimen/len_100"
+		android:scaleType="centerCrop"
+		android:layout_marginTop="@dimen/len_10"/>
+
+
+	    
+</LinearLayout>

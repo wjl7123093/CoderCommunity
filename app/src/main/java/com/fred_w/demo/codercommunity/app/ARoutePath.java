@@ -7,7 +7,7 @@ package com.fred_w.demo.codercommunity.app;
  * @version v1.0.0
  *
  * @crdate 2017-12-31
- * @update
+ * @update 2018-1-16
  */
 public interface ARoutePath {
 

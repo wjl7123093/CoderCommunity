@@ -3,6 +3,8 @@ package com.fred_w.demo.codercommunity.app.utils;
 import android.content.Context;
 import android.content.Intent;
 
+import com.alibaba.android.arouter.launcher.ARouter;
+import com.fred_w.demo.codercommunity.app.ARoutePath;
 import com.fred_w.demo.codercommunity.mvp.model.entity.LvMineFunctionBean;
 
 import java.util.List;
@@ -60,13 +62,9 @@ public class FunctionManager {
 	public void lanchFunction(int position)
 			throws ClassNotFoundException {
 		LvMineFunctionBean bean = mBeans.get(position);
-		String name = bean.getName();	// 功能名称
-		String className = bean.getPackageName() + "." + bean.getActivityName();
+		String path = bean.getPath();
 
-		Intent intent = new Intent();
-		intent.setClass(mContext, Class.forName(className));
-		mContext.startActivity(intent);
-
+		ARouter.getInstance().build(path).navigation();
 	}
 	
 }

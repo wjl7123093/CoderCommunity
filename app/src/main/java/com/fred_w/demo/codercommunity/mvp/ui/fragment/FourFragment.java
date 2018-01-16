@@ -94,9 +94,6 @@ public class FourFragment extends BaseFragment<FourPresenter> implements FourCon
 
     @Override
     public void initData(Bundle savedInstanceState) {
-        /*mBtnToolbarBack.setVisibility(View.GONE);
-        mTvToolbarTitle.setText("个人中心");*/
-
         initFunctionManager();
         bindGvFuncData();
 

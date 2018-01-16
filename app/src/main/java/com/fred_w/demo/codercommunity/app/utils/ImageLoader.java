@@ -43,7 +43,7 @@ public class ImageLoader {
         ImageOptions imageOptions= new ImageOptions.Builder()
                 //ImageOptions.Builder()的一些其他属性：
                 .setFadeIn(true)    // 淡入效果
-                .setCircular(true) //设置图片显示为圆形
+//                .setCircular(true) //设置图片显示为圆形
                 .setSquare(true) //设置图片显示为正方形
                 .setCrop(true).setSize(200,200) //设置大小
 //                .setAnimation(animation) //设置动画

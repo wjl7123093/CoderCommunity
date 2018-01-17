@@ -2,6 +2,7 @@
     <string name="app_name">码农社区</string>
     <string name="title_activity_start">StartActivity</string>
     <string name="title_activity_myinfo">个人主页</string>
+    <string name="title_activity_activelist">我的动态</string>
 
     <!-- main tab -->
     <string name="tab_one">综合</string>

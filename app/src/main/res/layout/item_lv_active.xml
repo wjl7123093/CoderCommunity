@@ -4,7 +4,7 @@
   * @Description: 动态信息项视图 XML
   * @author Fred_W
   * @crdate 2018-1-11
-  * @update
+  * @update 2018-1-17
   * @version v1.0.0(1)
  -->
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
@@ -37,7 +37,7 @@
 			android:layout_width="wrap_content"
 			android:layout_height="wrap_content"
 			android:text="暗笑次啊"
-			android:textSize="@dimen/font_18"
+			android:textSize="@dimen/font_16"
 			android:textColor="@color/primary_text"
 			android:layout_toRightOf="@id/iv_header"
 			android:layout_alignTop="@id/iv_header"
@@ -60,7 +60,7 @@
 		android:layout_width="match_parent"
 		android:layout_height="wrap_content"
 		android:text="动态内容。。。。。"
-		android:textSize="@dimen/font_18"
+		android:textSize="@dimen/font_14"
 		android:textColor="@color/primary_text"
 		android:layout_marginTop="@dimen/len_10"/>
 	

@@ -1,4 +1,14 @@
 <?xml version="1.0" encoding="utf-8"?>
+<!--
+ * AndroidMenifesh.xml 全局配置文件
+ *
+ * @author Fred_W
+ * @version v1.0.0
+ *
+ * @crdate 2017-12-31
+ * @update 2018-1-17    注册 ActiveListActivity
+ *
+ -->
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.fred_w.demo.codercommunity">
 
@@ -44,7 +54,8 @@
         <activity
             android:name=".mvp.ui.activity.MyInfoActivity"
             android:label="@string/title_activity_myinfo" />
-        <activity android:name=".mvp.ui.activity.ActiveListActivity"></activity>
+        <activity android:name=".mvp.ui.activity.ActiveListActivity"
+            android:label="@string/title_activity_activelist"></activity>
     </application>
 
 </manifest>

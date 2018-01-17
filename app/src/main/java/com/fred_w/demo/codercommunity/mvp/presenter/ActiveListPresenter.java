@@ -20,7 +20,15 @@ import javax.inject.Inject;
 import com.fred_w.demo.codercommunity.mvp.contract.ActiveListContract;
 import com.jess.arms.utils.RxLifecycleUtils;
 
-
+/**
+ * ActiveListPresenter 动态列表页面 P 层(MVP)
+ *
+ * @author Fred_W
+ * @version v1.0.0
+ *
+ * @crdate 2018-1-16
+ * @update 2017-1-17 新增 数据加载错误提示
+ */
 @ActivityScope
 public class ActiveListPresenter extends BasePresenter<ActiveListContract.Model, ActiveListContract.View> {
     private RxErrorHandler mErrorHandler;
@@ -73,12 +81,8 @@ public class ActiveListPresenter extends BasePresenter<ActiveListContract.Model,
                 .subscribe(new ErrorHandleSubscriber<ActiveList>(mErrorHandler) {
                     @Override
                     public void onError(@NonNull Throwable e) {
-                        super.onError(e);
-                    }
-
-                    @Override
-                    public void onComplete() {
-                        super.onComplete();
+                        mRootView.showMessage("数据加载错误：" + e.getMessage());
+                        mRootView.finishRefreshing();
                     }
 
                     @Override

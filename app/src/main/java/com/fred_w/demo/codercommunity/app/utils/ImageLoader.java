@@ -15,7 +15,7 @@ import org.xutils.x;
  * @version v1.0.0
  *
  * @crdate 2018-1-3
- * @update
+ * @update 2018-1-17 注释了 setSize() 属性
  */
 public class ImageLoader {
 
@@ -45,7 +45,8 @@ public class ImageLoader {
                 .setFadeIn(true)    // 淡入效果
 //                .setCircular(true) //设置图片显示为圆形
                 .setSquare(true) //设置图片显示为正方形
-                .setCrop(true).setSize(200,200) //设置大小
+                .setCrop(true)
+//                .setSize(200,200) //设置大小
 //                .setAnimation(animation) //设置动画
 //                .setFailureDrawable(Drawable failure／Drawable) //设置加载失败的动画
                 .setFailureDrawableId(R.mipmap.ic_launcher) //以资源id设置加载失败的动画

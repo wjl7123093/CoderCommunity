@@ -25,7 +25,7 @@ import static com.fred_w.demo.codercommunity.app.utils.DateUtils.timeLogic;
  * @version v1.0.0
  *
  * @crdate 2018-1-17
- * @update
+ * @update 2018-1-17 新增 防止数组溢出 逻辑
  */
 public class ActiveListAdapter extends RecyclerView.Adapter<ActiveListAdapter.ViewHolder> {
 
@@ -50,6 +50,10 @@ public class ActiveListAdapter extends RecyclerView.Adapter<ActiveListAdapter.Vi
 
     @Override
     public void onBindViewHolder(ActiveListAdapter.ViewHolder holder, int position) {
+        if (position >= activeList.size())  // 防止数组溢出
+            return;
+
+        // 显示数据
         ImageLoader.getInstance().showImage(holder.roundImageView, activeList.get(position)
                 .getPortrait());
         holder.mTvUsername.setText(activeList.get(position).getAuthor());

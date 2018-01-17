@@ -6,6 +6,7 @@ import com.fred_w.demo.codercommunity.mvp.model.entity.LoginUser;
 import io.reactivex.Observable;
 import retrofit2.http.Field;
 import retrofit2.http.FormUrlEncoded;
+import retrofit2.http.Headers;
 import retrofit2.http.POST;
 
 /**
@@ -30,6 +31,7 @@ public interface ActiveListService {
      * @return
      */
     @FormUrlEncoded
+    @Headers({"Connection: close"})     // 防止出现 EOF:\n not found: limit=0 content=... BUG[测试中]
     @POST("/action/openapi/active_list")
     Observable<ActiveList> getActiveList(@Field("access_token") String access_token,
                                          @Field("dataType") String dataType,

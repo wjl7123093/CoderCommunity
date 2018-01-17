@@ -9,11 +9,11 @@ import java.io.Serializable;
  * @version v1.0.0
  *
  * @crdate 2017-1-2
- * @update
+ * @update 2017-1-17 修改了 id 的数据类型（String -> long）
  */
 public class LoginUser implements Serializable {
 
-    private String id;
+    private long id;
     private String email;
     private String name;
     private String gender;
@@ -34,11 +34,11 @@ public class LoginUser implements Serializable {
                 '}';
     }
 
-    public String getId() {
+    public long getId() {
         return id;
     }
 
-    public void setId(String id) {
+    public void setId(long id) {
         this.id = id;
     }
 
